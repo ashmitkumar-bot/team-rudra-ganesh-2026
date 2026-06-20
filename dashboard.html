@@ -192,6 +192,29 @@ console.log(error);
 
 loadDashboard();
 loadBookings();
+  async function cancelBooking(id){
+
+if(!confirm("Cancel this booking?")) return;
+
+const res = await fetch(API_URL,{
+method:"POST",
+body:JSON.stringify({
+action:"cancelBooking",
+id:id
+})
+});
+
+const data = await res.json();
+
+if(data.status==="Success"){
+alert("Booking Cancelled");
+loadBookings();
+loadDashboard();
+}else{
+alert("Failed");
+}
+
+}
 
 </script>
 
