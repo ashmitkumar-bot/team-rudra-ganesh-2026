@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard</title>
+<title>Team Rudra Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+padding:20px;
+background:#f5f5f5;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:10px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+color:orange;
+}
+
+</style>
+
 </head>
+
 <body>
 
-<h1>ADMIN PANEL WORKING ✅</h1>
+<h1>TEAM RUDRA ADMIN PANEL</h1>
 
-<h2>Team Rudra Ganesh 2026</h2>
+<div class="card">
+<h2>Total Bookings</h2>
+<p id="bookings">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Total Donations</h2>
+<p id="donations">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Pending Wishes</h2>
+<p id="wishes">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Volunteers</h2>
+<p id="volunteers">Loading...</p>
+</div>
 
 </body>
 </html>
