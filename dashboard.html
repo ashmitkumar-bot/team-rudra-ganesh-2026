@@ -171,6 +171,11 @@ tbody.innerHTML += `
 <td>${row.phone}</td>
 <td>${row.day}</td>
 <td>${row.slot}</td>
+<td>
+<button onclick="cancelBooking('${row.id}')">
+Cancel
+</button>
+</td>
 </tr>
 `;
 
