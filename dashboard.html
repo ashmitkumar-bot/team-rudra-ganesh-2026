@@ -49,6 +49,23 @@ color:orange;
 <div class="card">
 <h2>Volunteers</h2>
 <p id="volunteers">Loading...</p>
+    <h2>Recent Bookings</h2>
+
+<table border="1" width="100%" id="bookingTable">
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Day</th>
+<th>Slot</th>
+</tr>
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
 </div>
 <!DOCTYPE html>
 <html>
@@ -143,9 +160,7 @@ async function loadDashboard() {
 }
 
 loadDashboard();
-
+loadBookings();
 </script>
-</body>
-</html>
 </body>
 </html>
