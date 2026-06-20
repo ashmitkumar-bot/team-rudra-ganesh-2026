@@ -50,6 +50,124 @@ color:orange;
 <h2>Volunteers</h2>
 <p id="volunteers">Loading...</p>
 </div>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team Rudra Dashboard</title>
 
+<style>
+
+body{
+font-family:Arial;
+padding:20px;
+background:#f5f5f5;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:10px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+color:orange;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>TEAM RUDRA ADMIN PANEL</h1>
+
+<div class="card">
+<h2>Total Bookings</h2>
+<p id="bookings">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Total Donations</h2>
+<p id="donations">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Pending Wishes</h2>
+<p id="wishes">Loading...</p>
+</div>
+
+<div class="card">
+<h2>Volunteers</h2>
+<p id="volunteers">Loading...</p>
+</div>
+<script>
+
+const API_URL = "https://script.google.com/macros/s/AKfycbw5LkHC9Z6pVjS-UvNzfylqOTbcNZQnXGWZz9LznSZPedAsJOMYzDmjN2NofPtEGmv9sA/exec"; 
+
+async function loadDashboard() {
+
+    try {
+
+        // Bookings
+        const bookingsRes =
+        await fetch(`${API_URL}?action=getBookings`);
+
+        const bookings =
+        await bookingsRes.json();
+
+        document.getElementById("bookings").innerText =
+        bookings.data.length;
+
+        // Donations
+        const donationsRes =
+        await fetch(`${API_URL}?action=getDonations`);
+
+        const donations =
+        await donationsRes.json();
+
+        let total = 0;
+
+        donations.data.forEach(d => {
+            total += Number(d.amount);
+        });
+
+        document.getElementById("donations").innerText =
+        "₹" + total;
+
+        // Wishes
+        const wishesRes =
+        await fetch(`${API_URL}?action=getApprovedWishes`);
+
+        const wishes =
+        await wishesRes.json();
+
+        document.getElementById("wishes").innerText =
+        wishes.data.length;
+
+        // Volunteers
+        const volunteersRes =
+        await fetch(`${API_URL}?action=getVolunteerLeaderboard`);
+
+        const volunteers =
+        await volunteersRes.json();
+
+        document.getElementById("volunteers").innerText =
+        volunteers.data.length;
+
+    } catch(error) {
+
+        console.log(error);
+
+    }
+
+}
+
+loadDashboard();
+
+</script>
+</body>
+</html>
 </body>
 </html>
