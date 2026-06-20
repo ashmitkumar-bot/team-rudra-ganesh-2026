@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Rudra Admin Login</title>
+    <style>
+        body{
+            font-family: Arial;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#f5f5f5;
+        }
+
+        .box{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+            width:300px;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:orange;
+            border:none;
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        #msg{
+            margin-top:10px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <h2>Admin Login</h2>
+
+    <input type="text" id="username" placeholder="Username">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <div id="msg"></div>
+
+</div>
+
+<script>
+
+const API_URL = "https://script.google.com/macros/s/AKfycbw5LkHC9Z6pVjS-UvNzfylqOTbcNZQnXGWZz9LznSZPedAsJOMYzDmjN2NofPtEGmv9sA/exec"; 
+
+async function login(){
+
+    const username =
+    document.getElementById("username").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const res = await fetch(API_URL,{
+        method:"POST",
+        body:JSON.stringify({
+            action:"adminLogin",
+            username,
+            password
+        })
+    });
+
+    const data = await res.json();
+
+    if(data.status === "Success"){
+
+        document.getElementById("msg").innerHTML =
+        "Login Success";
+
+    }else{
+
+        document.getElementById("msg").innerHTML =
+        "Invalid Login";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
