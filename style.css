@@ -1,0 +1,203 @@
+:root {
+    --orange: #FF8C00;
+    --orange-dark: #E67E22;
+    --gold: #FFD700;
+    --white: #FFFFFF;
+    --bg-light: #FFF8F0;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding-bottom: 80px; /* Space for bottom nav on mobile */
+}
+
+/* Typography */
+h1, h2, h3 { color: var(--orange-dark); }
+.telugu-heading {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+.highlight-text {
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Header & Nav */
+header {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    color: var(--white);
+    text-align: center;
+    padding: 20px 10px 10px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+header h1 { color: var(--white); font-size: 1.8rem; margin-bottom: 5px; }
+header p { color: var(--gold); font-weight: bold; font-size: 0.9rem; }
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 5px;
+}
+nav button {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+nav button.active {
+    background: var(--gold);
+    color: var(--orange-dark);
+}
+
+/* Sections */
+main {
+    padding: 15px;
+    max-width: 600px; /* Mobile first, centered on desktop */
+    margin: 0 auto;
+}
+section { display: none; animation: fadeIn 0.4s ease-in-out; }
+section.active-section { display: block; }
+.section-header { text-align: center; margin: 20px 0; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards */
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--gold);
+}
+.center-card { text-align: center; }
+
+/* Home Specific */
+.image-placeholder {
+    background: #FFF3E0;
+    height: 200px;
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    margin-bottom: 15px;
+    border: 2px dashed var(--gold);
+}
+.countdown {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--orange-dark);
+    background: #FFF3E0;
+    padding: 10px;
+    border-radius: 8px;
+}
+.timings-list { list-style: none; }
+.timings-list li { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 1.1rem; }
+.timings-list i { color: var(--orange); margin-right: 10px; }
+
+/* Forms */
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--text-dark); }
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
+}
+.btn-primary {
+    width: 100%;
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(255, 140, 0, 0.3);
+}
+.btn-primary:active { transform: scale(0.98); }
+.msg { margin-top: 10px; text-align: center; font-weight: bold; font-size: 0.9rem; }
+
+/* Lists (Bookings, Wishes, Sponsors) */
+.data-list { display: flex; flex-direction: column; gap: 10px; }
+.list-item {
+    background: #FFF8F0;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--orange);
+}
+.list-item strong { color: var(--orange-dark); display: block; font-size: 1.1rem; }
+.list-item span { color: var(--text-light); font-size: 0.9rem; }
+
+/* Donation Specific */
+.qr-placeholder {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: var(--radius);
+    display: inline-block;
+    border: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+.upi-info { background: #FFF3E0; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+
+/* Team */
+.team-list { list-style: none; }
+.team-list li { padding: 15px; border-bottom: 1px solid #eee; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; }
+.team-list i { color: var(--orange); font-size: 1.5rem; }
+
+/* Floating Action Button */
+.float-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-decoration: none;
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Rudra Ganesh Chaturthi 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <h1>TEAM RUDRA</h1>
+            <p>Ganesh Chaturthi 2026</p>
+        </div>
+        <nav>
+            <button onclick="showSection('home')" class="active" id="nav-home"><i class="fas fa-home"></i></button>
+            <button onclick="showSection('booking')" id="nav-booking"><i class="fas fa-om"></i></button>
+            <button onclick="showSection('donate')" id="nav-donate"><i class="fas fa-rupee-sign"></i></button>
+            <button onclick="showSection('sponsors')" id="nav-sponsors"><i class="fas fa-hand-holding-heart"></i></button>
+            <button onclick="showSection('wishes')" id="nav-wishes"><i class="fas fa-star"></i></button>
+            <button onclick="showSection('team')" id="nav-team"><i class="fas fa-users"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="active-section">
+            <div class="section-header">
+                <h2>Welcome</h2>
+                <h3 class="telugu-heading">స్వాగతం</h3>
+            </div>
+            
+            <div class="card banner-card">
+                <img src="ganesh.png" alt="Ganesh Ji" style="width:100%;border-radius:12px;">
+                    <i class="fas fa-om fa-4x" style="color: var(--gold);"></i>
+                    <p>Lord Ganesha Image Placeholder</p>
+                </div>
+                <div class="countdown" id="countdown">
+                    Loading Timer...
+                </div>
+            </div>
+
+            <div class="card info-card">
+                <h3>Daily Pooja Timings</h3>
+                <h4 class="telugu-heading">రోజువారీ పూజా సమయాలు</h4>
+                <ul class="timings-list">
+                    <li><i class="fas fa-sun"></i> Morning: 8:00 AM - 11:00 AM</li>
+                    <li><i class="fas fa-moon"></i> Evening: 6:00 PM - 8:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="card info-card">
+                <h3>Annadhanam Date</h3>
+                <h4 class="telugu-heading">అన్నదానం తేదీ</h4>
+                <p class="highlight-text">Day 9 - Grand Maha Annadhanam</p>
+            </div>
+
+            <div class="card info-card" id="today-sponsor-card">
+                <h3>Today's Sponsor</h3>
+                <h4 class="telugu-heading">నేటి దాత</h4>
+                <p id="today-sponsor-name">Loading...</p>
+            </div>
+        </section>
+
+        <!-- BOOKING SECTION -->
+        <section id="booking">
+            <div class="section-header">
+                <h2>Book Pooja</h2>
+                <h3 class="telugu-heading">పూజ బుక్ చేయండి</h3>
+            </div>
+
+            <div class="card form-card">
+                <form id="bookingForm">
+                    <div class="input-group">
+                        <label>Name (పేరు)</label>
+                        <input type="text" id="b-name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="input-group">
+                        <label>Phone (ఫోన్ నంబర్)</label>
+                        <input type="tel" id="b-phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}">
+                    </div>
+                    <div class="input-group">
+                        <label>Day (రోజు)</label>
+                        <select id="b-day" required>
+                            <option value="">Select Day</option>
+                            <!-- Options populated via JS -->
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Slot (సమయం)</label>
+                        <select id="b-slot" required>
+                            <option value="">Select Slot</option>
+                            <option value="Morning">Morning (ఉదయం)</option>
+                            <option value="Evening">Evening (సాయంత్రం)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Confirm Booking</button>
+                    <div id="booking-msg" class="msg"></div>
+                </form>
+            </div>
+<button type="submit" class="btn-primary">Confirm Booking</button>
+<div id="booking-msg" class="msg"></div>
+</form>
+
+<div class="card info-card" style="margin-top:15px;">
+    <h3>Required Pooja Samagri</h3>
+    <h4 class="telugu-heading">అవసరమైన పూజా సామగ్రి</h4>
+
+    <ul class="timings-list">
+        <li>🥥 Coconut (కొబ్బరికాయ)</li>
+        <li>🌸 Garland for Ganesh Ji (పూల మాల)</li>
+        <li>🕯️ Agarbatti (అగరబత్తి)</li>
+        <li>🟡 Turmeric (పసుపు)</li>
+        <li>🔴 Kumkum (కుంకుమ)</li>
+        <li>🔥 Camphor (కర్పూరం)</li>
+        <li>🍎 Fruits (పండ్లు)</li>
+        <li>🍃 Betel Leaves (తమలపాకులు)</li>
+    </ul>
+</div>
+
+</div>
+
+<div class="card list-card">
+    <h3>All Pooja Slots</h3>
+    <h4 class="telugu-heading">అన్ని పూజా స్లాట్లు</h4>
+
+    <div id="all-slots-list">
+        Loading slots...
+    </div>
+</div>
+            <div class="card list-card">
+                <h3>Confirmed Bookings</h3>
+                <h4 class="telugu-heading">ధృవీకరించబడిన బుకింగ్‌లు</h4>
+                <div id="bookings-list" class="data-list">Loading...</div>
+            </div>
+        </section>
+
+        <!-- DONATION SECTION -->
+        <section id="donate">
+            <div class="section-header">
+                <h2>Donate</h2>
+                <h3 class="telugu-heading">విరాళం ఇవ్వండి</h3>
+            </div>
+            
+            <div class="card center-card">
+                <div class="qr-placeholder">
+<img src="qr.jpeg" alt="Donation QR" width="250">
+                    <i class="fas fa-qrcode fa-5x"></i>
+                    <p>Scan to Donate</p>
+                </div>
+                <div class="upi-info">
+                    <p>UPI ID:</p>
+                    <h3 class="highlight-text">6281125795@ybl</h3>
+                </div>
+<div class="card info-card">
+    <h3>Total Donations</h3>
+    <h4 class="telugu-heading">మొత్తం విరాళాలు</h4>
+
+    <p id="total-donations" class="highlight-text">
+        ₹0
+    </p>
+</div>
+                <p class="thank-you-text">Thank you for your generous contribution towards the Maha Annadhanam and Pooja expenses.</p>
+            </div>
+        </section>
+
+        <!-- SPONSORS SECTION -->
+        <section id="sponsors">
+            <div class="section-header">
+                <h2>Sponsor Wall</h2>
+                <h3 class="telugu-heading">దాతలు</h3>
+            </div>
+            <div class="card list-card">
+                <div id="sponsors-list" class="data-list">Loading...</div>
+            </div>
+        </section>
+
+        <!-- WISHES SECTION -->
+        <section id="wishes">
+            <div class="section-header">
+                <h2>Wish Wall</h2>
+                <h3 class="telugu-heading">కోరికలు</h3>
+            </div>
+
+            <div class="card form-card">
+                <form id="wishForm">
+                    <div class="input-group">
+                        <label>Name (పేరు)</label>
+                        <input type="text" id="w-name" required placeholder="Your Name">
+                    </div>
+                    <div class="input-group">
+                        <label>Message (సందేశం)</label>
+                        <textarea id="w-message" required placeholder="Write your prayer/wish here..." rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Wish</button>
+                    <div id="wish-msg" class="msg"></div>
+                </form>
+            </div>
+
+            <div class="card list-card">
+                <div id="wishes-list" class="data-list">Loading...</div>
+            </div>
+        </section>
+
+        <!-- TEAM SECTION -->
+        <section id="team">
+            <div class="section-header">
+                <h2>Team Rudra</h2>
+                <h3 class="telugu-heading">మా బృందం</h3>
+            </div>
+            <div class="card list-card">
+                <ul class="team-list">
+                    <li><i class="fas fa-user-circle"></i> Ashmit Kumar Nawarkhele (Founder)</li>
+                    <li><i class="fas fa-user-circle"></i> Member 2</li>
+                    <li><i class="fas fa-user-circle"></i> Member 3</li>
+                    <li><i class="fas fa-user-circle"></i> Member 4</li>
+                    <!-- Add more members here -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" id="whatsapp-share" class="float-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+</html>
